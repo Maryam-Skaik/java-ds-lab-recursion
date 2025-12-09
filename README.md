@@ -83,7 +83,7 @@ printName(3)
 
 ---
 
-### 🟢 Printing an Array Forward and Backward
+### 3.2 🟢 Printing an Array Forward and Backward
 
 **Goal:** Traverse an array using recursion (forward and backward).
 
