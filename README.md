@@ -222,16 +222,12 @@ Total = 3
 
 ## 4. 🎯 Activities (Solutions to be added later)
 
-**Activity** | **Description**
--------------------------------
-Sum elements in SLL 🧮 | Recursively sum all elements in a singly linked list.
---------------------------------------------------------------------------------
-Find last node in CLL 🔄 | Recursively identify the last node in a circular linked list.
---------------------------------------------------------------------------------------------
-Count nodes in CLL 🔢 | Recursively count nodes in a circular linked list.
-------------------------------------------------------------------------------
-Reverse SLL 🔁 | Reverse a singly linked list using recursion.
---------------------------------------------------------------------
+| Activity                   | Description                                                   |
+|----------------------------|---------------------------------------------------------------|
+| Sum elements in SLL 🧮     | Recursively sum all elements in a singly linked list.         |
+| Find last node in CLL 🔄   | Recursively identify the last node in a circular linked list. |
+| Count nodes in CLL 🔢      | Recursively count nodes in a circular linked list.            |
+| Reverse SLL 🔁             | Reverse a singly linked list using recursion.                 |
 
 ---
 
