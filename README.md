@@ -275,6 +275,20 @@ java Recursion
 
 ---
 
+## 📂 Recursion Module – Assignments
+
+A new assignment set has been added for **Lecture 03 – Recursion**.  
+It includes tasks on recursive arrays, linked lists (SLL, DLL), and classic recursive functions.
+
+You can find it here:
+
+👉 [`/assignments/`](assignmnet/readme.md)
+
+The assignment explanation video is available on YouTube.  
+Students must watch the full video, write all tasks, and implement them using recursion only.
+
+---
+
 ## 7. 💡 Tips for Students
 
 - Identify **base case first** 🛑
