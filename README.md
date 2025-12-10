@@ -8,6 +8,13 @@
 
 ---
 
+## 📺 Lecture Video
+
+Watch the full Recursion Lab lecture on YouTube:
+https://youtu.be/KIPyIDNcnGM
+
+---
+
 ## 1. 🌟 Introduction
 
 Recursion is a **powerful programming technique** where a function calls itself to solve a smaller version of a problem.  
