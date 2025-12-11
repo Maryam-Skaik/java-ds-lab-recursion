@@ -236,6 +236,8 @@ Total = 3
 | Count nodes in CLL 🔢      | Recursively count nodes in a circular linked list.            |
 | Reverse SLL 🔁             | Reverse a singly linked list using recursion.                 |
 
+> ⚠️ Note: Solutions are not uploaded yet. Videos and step-by-step solutions will be linked here once available.
+
 ---
 
 ## 5. 📖 Chapter Materials
