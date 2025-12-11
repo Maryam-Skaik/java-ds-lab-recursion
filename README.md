@@ -30,6 +30,8 @@ It is especially useful for:
 2. **Recursive Case** 🔄: Reduces the problem size and calls the same function again.  
 3. **Recursive Thinking** 💡: Think about how a large problem can be expressed in terms of smaller instances of itself.  
 
+> Time Complexity: O(n)
+> Space Complexity: O(n) (stack frames)
 ---
 
 ## 2. 📂 Repository Structure
@@ -74,16 +76,27 @@ In this section, we explain the **idea behind each example**, how to **plan and 
   - Function accepts a count.
   - Print the name once.
   - Call itself with count − 1.
-4. **Visualize:**
+4. **Mermaid Visualization:**
 
-```css
-printName(3)
-  prints "Maryam"
-  calls printName(2)
-    prints "Maryam"
-    calls printName(1)
-      prints "Maryam"
-      calls printName(0) -> stops
+```mermaid
+flowchart TD
+    A[printName_3]
+    B[print_Maryam_call_2]
+    C[print_Maryam_call_1]
+    D[print_Maryam_call_0]
+    E[Stop]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+
+    %% Colors with black font
+    style A fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000000
+    style B fill:#ffe0b3,stroke:#ff8000,stroke-width:2px,color:#000000
+    style C fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000000
+    style D fill:#cce0ff,stroke:#0066ff,stroke-width:2px,color:#000000
+    style E fill:#d9b3ff,stroke:#8000ff,stroke-width:2px,color:#000000
 ```
 
 > **Key Takeaway:** Recursion can replace loops and helps you **think in terms of repeated actions.**
@@ -100,13 +113,17 @@ printName(3)
 2. **Recursive case** 🔄:
   - Forward: process the current element, then call the function for the next index.
   - Backward: call the function for the next index first, then process the element (to reverse the order).
+3. **Mermaid Forward Example:**
 
-**Think visually:**
+```mermaid
+flowchart LR
+    A(["arr[0]"]) --> B(["arr[1]"]) --> C(["arr[2]"]) --> D(["Stop"])
 
-```css
-Array: [1,2,3]
-Forward: process 1 -> process 2 -> process 3
-Backward: call(1) -> call(2) -> call(3) -> print 3 -> print 2 -> print 1
+    %% Colors with black font and rounded style
+    style A fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:10,ry:10
+    style B fill:#ffcc99,stroke:#cc6600,stroke-width:2px,color:#000000,rx:10,ry:10
+    style C fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:10,ry:10
+    style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:10,ry:10
 ```
 
 > **Tip:** This example connects recursion to arrays and helps you **understand order of operations** in recursive calls.
