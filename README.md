@@ -79,24 +79,21 @@ In this section, we explain the **idea behind each example**, how to **plan and 
 4. **Mermaid Visualization:**
 
 ```mermaid
-flowchart TD
-    A[printName_3]
-    B[print_Maryam_call_2]
-    C[print_Maryam_call_1]
-    D[print_Maryam_call_0]
-    E[Stop]
+flowchart LR
+    A(["printName(3)"])
+    B(["print Maryam<br>call printName(2)"])
+    C(["print Maryam<br>call printName(1)"])
+    D(["print Maryam<br>call printName(0)"])
+    E(["Stop"])
 
-    A --> B
-    B --> C
-    C --> D
-    D --> E
+    A --> B --> C --> D --> E
 
-    %% Colors with black font
-    style A fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000000
-    style B fill:#ffe0b3,stroke:#ff8000,stroke-width:2px,color:#000000
-    style C fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000000
-    style D fill:#cce0ff,stroke:#0066ff,stroke-width:2px,color:#000000
-    style E fill:#d9b3ff,stroke:#8000ff,stroke-width:2px,color:#000000
+    %% Colors with black font and rounded nodes
+    style A fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:10,ry:10
+    style B fill:#ffcc99,stroke:#cc6600,stroke-width:2px,color:#000000,rx:10,ry:10
+    style C fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:10,ry:10
+    style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:10,ry:10
+    style E fill:#d1b3ff,stroke:#6600cc,stroke-width:2px,color:#000000,rx:10,ry:10
 ```
 
 > **Key Takeaway:** Recursion can replace loops and helps you **think in terms of repeated actions.**
@@ -126,6 +123,30 @@ flowchart LR
     style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:10,ry:10
 ```
 
+4. **Mermaid Backward Example:**
+
+```mermaid
+flowchart LR
+    A(["arr[0]"])
+    B(["arr[1]"])
+    C(["arr[2]"])
+    D(["print arr[2]"])
+    E(["print arr[1]"])
+    F(["print arr[0]"])
+    G(["Stop"])
+
+    A --> B --> C --> D --> E --> F --> G
+
+    %% Colors with black font and rounded nodes
+    style A fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:10,ry:10
+    style B fill:#ffcc99,stroke:#cc6600,stroke-width:2px,color:#000000,rx:10,ry:10
+    style C fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:10,ry:10
+    style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:10,ry:10
+    style E fill:#ffe680,stroke:#cc9900,stroke-width:2px,color:#000000,rx:10,ry:10
+    style F fill:#ffb3e6,stroke:#cc3399,stroke-width:2px,color:#000000,rx:10,ry:10
+    style G fill:#d1b3ff,stroke:#6600cc,stroke-width:2px,color:#000000,rx:10,ry:10
+```
+
 > **Tip:** This example connects recursion to arrays and helps you **understand order of operations** in recursive calls.
 
 ---
@@ -142,12 +163,29 @@ flowchart LR
      - `max(arr[i..n-1]) = max(arr[i], max(arr[i+1..n-1]))`
 4. **Visualization:**
 
-```css
-arr = [3, 5, 2]
-findMax(0) = max(3, findMax(1))
-findMax(1) = max(5, findMax(2))
-findMax(2) = 2 -> returns 2
-Backtracking: max(5,2)=5 -> max(3,5)=5
+```mermaid
+flowchart LR
+    A(["max(3,5,2)"])
+    B(["max(5,2)"])
+    C(["max(2)"])
+    D(["Return 2"])
+    E(["Compare 5 vs 2 → 5"])
+    F(["Compare 3 vs 5 → 5"])
+    G(["Final Result: 5"])
+
+    A --> B --> C --> D
+    B --> E
+    A --> F
+    F --> G
+
+    %% Colors with black font and rounded nodes
+    style A fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:12,ry:12
+    style B fill:#ffcc99,stroke:#cc6600,stroke-width:2px,color:#000000,rx:12,ry:12
+    style C fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:12,ry:12
+    style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:12,ry:12
+    style E fill:#ffe680,stroke:#cc9900,stroke-width:2px,color:#000000,rx:12,ry:12
+    style F fill:#d1b3ff,stroke:#6600cc,stroke-width:2px,color:#000000,rx:12,ry:12
+    style G fill:#ffb3e6,stroke:#cc3399,stroke-width:2px,color:#000000,rx:12,ry:12
 ```
 
 > **Key Takeaway:** Recursion is powerful for **divide-and-conquer problems**.
@@ -166,11 +204,22 @@ Backtracking: max(5,2)=5 -> max(3,5)=5
   - Start with small n (e.g., 3), trace the recursive calls.
 4. **Visualization:**
 
-```css
-factorial(3) = 3 * factorial(2)
-              = 3 * (2 * factorial(1))
-              = 3 * (2 * 1)
-              = 6
+```mermaid
+flowchart LR
+    A(["factorial(3)"])
+    B(["3 * factorial(2)"])
+    C(["3 * (2 * factorial(1))"])
+    D(["3 * (2 * 1)"])
+    E(["6"])
+
+    A --> B --> C --> D --> E
+
+    %% Colors with black font and rounded nodes
+    style A fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:12,ry:12
+    style B fill:#ffcc99,stroke:#cc6600,stroke-width:2px,color:#000000,rx:12,ry:12
+    style C fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:12,ry:12
+    style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:12,ry:12
+    style E fill:#d1b3ff,stroke:#6600cc,stroke-width:2px,color:#000000,rx:12,ry:12
 ```
 
 > **Tip:** Factorial is the classic example to **practice base and recursive steps.**
@@ -186,10 +235,38 @@ factorial(3) = 3 * factorial(2)
 2. **Recursive case:** `fib(n)` = `fib(n-1)` + `fib(n-2)`.
 3. **Visualize recursion tree:**
 
-```css
-fib(4) = fib(3) + fib(2)
-fib(3) = fib(2) + fib(1)
-fib(2) = fib(1) + fib(0)
+```mermaid
+flowchart TB
+    A_fib_4(["fib(4)"])
+    B_fib_3(["fib(3)"])
+    C_fib_2(["fib(2)"])
+    D_fib_2(["fib(2)"])
+    E_fib_1(["fib(1)"])
+    F_fib_1(["fib(1)"])
+    G_fib_0(["fib(0)"])
+    H_fib_1(["fib(1)"])
+    I_fib_0(["fib(0)"])
+
+    %% Connections
+    A_fib_4 --> B_fib_3
+    A_fib_4 --> C_fib_2
+    B_fib_3 --> D_fib_2
+    B_fib_3 --> E_fib_1
+    D_fib_2 --> H_fib_1
+    D_fib_2 --> I_fib_0
+    C_fib_2 --> F_fib_1
+    C_fib_2 --> G_fib_0
+
+    %% Colors + black text + rounded nodes
+    style A_fib_4 fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:12,ry:12
+    style B_fib_3 fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000,rx:12,ry:12
+    style C_fib_2 fill:#cce5ff,stroke:#004085,stroke-width:2px,color:#000000,rx:12,ry:12
+    style D_fib_2 fill:#e2e3e5,stroke:#6c757d,stroke-width:2px,color:#000000,rx:12,ry:12
+    style E_fib_1 fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000000,rx:12,ry:12
+    style F_fib_1 fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000000,rx:12,ry:12
+    style G_fib_0 fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000000,rx:12,ry:12
+    style H_fib_1 fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000000,rx:12,ry:12
+    style I_fib_0 fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000000,rx:12,ry:12
 ```
 
 4. Notice **overlapping subproblems** – this helps prepare for memoization later.
@@ -207,12 +284,32 @@ fib(2) = fib(1) + fib(0)
 2. **Recursive case:** Return `1 + count of rest of the list`.
 3. **Visualize:**
 
-```css
-List: 1 -> 2 -> 3 -> null
-countNodesRec(1) = 1 + countNodesRec(2)
-countNodesRec(2) = 1 + countNodesRec(3)
-countNodesRec(3) = 1 + countNodesRec(null) = 1 + 0
-Total = 3
+```mermaid
+flowchart TB
+    A_Node_1(["Node 1"])
+    B_Node_2(["Node 2"])
+    C_Node_3(["Node 3"])
+    D_Null(["Null"])
+    E_Return_1(["Return 1 + countNodes(2)"])
+    F_Return_2(["Return 1 + countNodes(3)"])
+    G_Return_3(["Return 1 + 0"])
+
+    %% Connections
+    A_Node_1 --> B_Node_2
+    B_Node_2 --> C_Node_3
+    C_Node_3 --> D_Null
+    A_Node_1 --> E_Return_1
+    B_Node_2 --> F_Return_2
+    C_Node_3 --> G_Return_3
+
+    %% Styles with black font, rounded nodes
+    style A_Node_1 fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:15,ry:15
+    style B_Node_2 fill:#ffd699,stroke:#ff9900,stroke-width:2px,color:#000000,rx:15,ry:15
+    style C_Node_3 fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:15,ry:15
+    style D_Null fill:#99ccff,stroke:#0066cc,stroke-width:2px,color:#000000,rx:15,ry:15
+    style E_Return_1 fill:#cc99ff,stroke:#6600cc,stroke-width:2px,color:#000000,rx:15,ry:15
+    style F_Return_2 fill:#ffcc99,stroke:#cc6600,stroke-width:2px,color:#000000,rx:15,ry:15
+    style G_Return_3 fill:#c0c0c0,stroke:#666666,stroke-width:2px,color:#000000,rx:15,ry:15
 ```
 
 > **Tip:** Connects recursion with **dynamic data structures** like linked lists.
@@ -230,6 +327,31 @@ Total = 3
 **Backward traversal steps:**
 1. **Base case:** node is null → stop.
 2. **Recursive case:** print current node → call function on `prev`.
+3. **Mermaid Forward Example:**
+
+```mermaid
+flowchart LR
+    A(["Head<br>Prev: Null<br>Value: 10<br>Next: 20"])
+    B(["Prev: 10<br>Value: 20<br>Next: 30"])
+    C(["Prev: 20<br>Value: 30<br>Next: Null"])
+    D(["Tail<br>Prev: 30<br>Value: Null"])
+
+    %% Forward links
+    A -->|Next| B
+    B -->|Next| C
+    C -->|Next| D
+
+    %% Backward links
+    B -->|Prev| A
+    C -->|Prev| B
+    D -->|Prev| C
+
+    %% Styles with black font, rounded nodes, modern colors
+    style A fill:#ff9999,stroke:#cc0000,stroke-width:2px,color:#000000,rx:15,ry:15
+    style B fill:#ffd699,stroke:#ff9900,stroke-width:2px,color:#000000,rx:15,ry:15
+    style C fill:#99ff99,stroke:#009900,stroke-width:2px,color:#000000,rx:15,ry:15
+    style D fill:#99ccff,stroke:#0066cc,stroke-width:2px,color:#000000,rx:15,ry:15
+```
 
 > **Key Takeaway:** Recursion works naturally in **bidirectional structures**, teaching traversal patterns beyond arrays.
 
