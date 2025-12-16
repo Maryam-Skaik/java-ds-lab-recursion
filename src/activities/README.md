@@ -1,77 +1,243 @@
-# 🔄 Recursion Lab — Linked Lists Activities
+# 🧠 Recursion Activities – Data Structures Lab (Java)
 
-Welcome! This document lists the **four lab activities** for practicing **recursion** on linked lists. All activities must be solved using **recursive approaches only**.
+This folder contains **recursion-focused activities** designed for the **Data Structures Laboratory** course. The activities intentionally combine **recursion** with previously studied data structures—**Singly Linked Lists (SLL)** and **Circular Linked Lists (CLL)**—to help students understand *when*, *why*, and *how* recursion should be applied.
 
-> ⚠️ **Note:** Solutions are not uploaded yet. Solution videos will be linked here once available. Try solving them on your own before checking the videos.
-
----
-
-## 🔢 Activity 01 — Sum Elements in SLL
-
-**Problem:** Compute the sum of all elements in a singly linked list using recursion.
-
-**Input:** Head of a singly linked list.
-**Output:** An integer representing the sum of all node values.
-
-**Edge-cases to consider:**
-
-- Empty list → sum = 0.
-- Single-node list → sum = value of that node.
-- Lists with multiple nodes → sum of all nodes.
+> 🎯 **Core idea:** Linked lists are *naturally recursive*. Each node represents one step, and the rest of the list is a smaller version of the same problem.
 
 ---
 
-## 🔍 Activity 02 — Find Last Node in CLL
+## 📂 Folder Structure
 
-**Problem:** Return the last node of a **circular linked list** using recursion.
-
-**Input:** Head of a circular linked list.
-**Output:** The node that points back to the head (last node).
-
-**Edge-cases to consider:**
-
-- Empty list → return `null`.
-- Single-node circular list → the node itself is the last.
-- Multi-node circular list → correctly identify the last node.
+```
+activities/
+└── recursion/
+    ├── SLL.java   // Singly Linked List recursion activities
+    └── CLL.java   // Circular Linked List recursion activities
+```
 
 ---
 
-## 🔢 Activity 03 — Count Nodes in CLL
+## 🤔 Why Use Recursion Here?
 
-**Problem:** Count the number of nodes in a circular linked list using recursion.
+A linked list is defined recursively:
+- A node contains data
+- A node points to **another linked list**
 
-**Input:** Head of a circular linked list.
-**Output:** Integer count of nodes.
+This makes recursion a **natural fit** for operations such as traversal, counting, summation, and reversal.
 
-**Edge-cases to consider:**
-
-- Empty list → count = 0.
-- Single-node circular list → count = 1.
-- Multi-node circular list → ensure recursion stops correctly without infinite loops.
+However, recursion must be applied **carefully**, especially with **circular linked lists**, where there is **no `null` reference** to stop execution.
 
 ---
 
-## 🔁 Activity 04 — Reverse SLL
+## 🧩 Activity 1: Sum Elements in Singly Linked List (SLL)
 
-**Problem:** Reverse a singly linked list using recursion (change pointers, not node values).
+**File:** `SLL.java`
 
-**Input:** Head of a singly linked list.
-**Output:** Head of the reversed linked list.
+### 🔍 Problem
+Compute the sum of all elements in a singly linked list using recursion.
 
-**Edge-cases to consider:**
+### 💡 Why This Works
+Each recursive call:
+- Processes **one node**
+- Delegates the rest of the list to the next call
 
-- Empty list → head remains `null`.
-- Single-node list → reversed list is the same node.
-- Multiple nodes → ensure all pointers are correctly reversed recursively.
+### ✅ Base Case
+```java
+if (node == null) return 0;
+```
+Reaching `null` means the list has ended.
+
+### 🔁 Recursive Case
+```java
+return node.element + sumNodes(node.next);
+```
+
+### 📐 Recursive Call Stack (Visualized)
+```mermaid
+graph LR
+    A("sum(20)") --> B("sum(1)")
+    B --> C("sum(5)")
+    C --> D("sum(null) = 0")
+
+    %% Safe class names
+    classDef startNode fill:#ffb3b3,stroke:#b30000,stroke-width:2px,color:#000;
+    classDef stepNode  fill:#ffe699,stroke:#b38f00,stroke-width:2px,color:#000;
+    classDef recurNode fill:#c6e6b9,stroke:#38761d,stroke-width:2px,color:#000;
+    classDef baseNode  fill:#cfe2f3,stroke:#0b5394,stroke-width:2px,color:#000;
+
+    %% Apply styles
+    class A startNode;
+    class B stepNode;
+    class C recurNode;
+    class D baseNode;
+```
+
+### 📊 Complexity
+- **Time:** `O(n)`
+- **Space:** `O(n)` (recursive stack)
 
 ---
 
-## 📌 Instructions
+## 🧩 Activity 2: Reverse Singly Linked List (SLL)
 
-1. Implement **recursive solutions** only.
-2. Test edge-cases before submitting.
-3. Once solution videos are uploaded, watch them to compare your approach.
-4. All activities are independent — you can start with any of them.
+**File:** `SLL.java`
 
+### 🔍 Problem
+Reverse a singly linked list using **recursion only** (no loops).
 
-> Solution videos will be linked here once uploaded.
+### 💡 Key Insight
+The list is reversed **while recursion unwinds**.
+The last node becomes the new head.
+
+### ✅ Base Case
+```java
+if (node == null || node.next == null) return node;
+```
+
+### 🔁 Pointer Reassignment (Critical Step)
+```java
+node.next.next = node;
+node.next = null;
+```
+
+### 📐 Pointer Transformation Diagram
+
+**Before Reversal:**
+```mermaid
+graph LR
+    %% Rounded nodes using parentheses
+    A("1") --> B("2") --> C("3") --> N("NULL")
+
+    %% Class definitions for colors and borders
+    classDef node1 fill:#f4cccc,stroke:#b30000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef node2 fill:#ffe599,stroke:#b38f00,stroke-width:2px,color:#000,font-weight:bold;
+    classDef node3 fill:#d9ead3,stroke:#38761d,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeNull fill:#cfe2f3,stroke:#0b5394,stroke-width:2px,color:#000,font-weight:bold;
+
+    %% Apply classes
+    class A node1;
+    class B node2;
+    class C node3;
+    class N nodeNull;
+```
+
+**After Reversal:**
+```mermaid
+graph LR
+    C[3] --> B[2] --> A[1] --> N[NULL]
+    style A fill:#f4cccc
+    style B fill:#ffe599
+    style C fill:#d9ead3
+```
+
+---
+
+## 🧩 Activity 3: Find Last Node in Circular Linked List (CLL)
+
+**File:** `CLL.java`
+
+### 🔍 Problem
+Find the last node in a circular linked list using recursion.
+
+### ⚠️ Why This Is Dangerous
+Circular lists **never reach `null`**.
+Using `node == null` as a base case would cause **infinite recursion**.
+
+### ✅ Correct Base Case
+```java
+if (node.next == head) return node;
+```
+This guarantees exactly **one full cycle**.
+
+### 📐 Circular Traversal Visualization
+```mermaid
+graph LR
+    A --> B --> C --> D --> A
+    style A fill:#cfe2f3
+    style B fill:#ead1dc
+    style C fill:#d9ead3
+    style D fill:#fff2cc
+```
+
+---
+
+## 🧩 Activity 4: Count Nodes in Circular Linked List (CLL)
+
+**File:** `CLL.java`
+
+### 🔍 Problem
+Count the number of nodes in a circular linked list recursively.
+
+### 💡 Strategy
+- Count the current node
+- Stop when the traversal returns to `head`
+
+### ✅ Base Case
+```java
+if (node.next == head) return 1;
+```
+
+### 🔁 Recursive Case
+```java
+return 1 + countNodes(head, node.next);
+```
+
+### 📐 Recursive Counting Flow
+```mermaid
+graph TD
+    A[Count A] --> B[Count B]
+    B --> C[Count C]
+    C --> D[Back to Head → Stop]
+
+    style A fill:#d0e0e3
+    style B fill:#ead1dc
+    style C fill:#d9ead3
+    style D fill:#fce5cd
+```
+
+### 📊 Complexity
+- **Time:** `O(n)`
+- **Space:** `O(n)`
+
+---
+
+## 🚫 Common Student Mistakes
+
+- ❌ Using `null` as a base case in circular lists
+- ❌ Forgetting to stop recursion at `node.next == head`
+- ❌ Reversing data instead of pointers
+- ❌ Not tracing recursive calls manually
+
+---
+
+## 🎯 Learning Outcomes
+
+After completing these activities, students should be able to:
+
+- Explain **why recursion works naturally with linked lists**
+- Identify **correct base cases** for different structures
+- Avoid infinite recursion in circular lists
+- Trace recursion using call stacks and diagrams
+- Reverse linked lists recursively with confidence
+
+---
+
+## ▶️ How Students Should Use This Code
+
+1. Read the problem carefully
+2. Identify the base case *before writing code*
+3. Draw the recursion tree or call stack
+4. Run the `main()` methods with multiple test cases
+5. Modify and extend the code
+
+---
+
+## 👩‍🏫 Instructor
+
+**Maryam Skaik**  
+Teaching Assistant – Data Structures & Algorithms  
+Java | Linked Lists | Recursion
+
+---
+
+> 📌 These implementations are for **educational purposes**. Understanding the logic is more important than memorizing the code.
