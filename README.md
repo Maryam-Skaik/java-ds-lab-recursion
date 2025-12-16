@@ -366,7 +366,7 @@ flowchart LR
 
 ---
 
-## 4. 🎯 Activities (Solutions to be added later)
+## 4. 🎯 Activities (Solutions Available)
 
 | Activity                   | Description                                                   |
 |----------------------------|---------------------------------------------------------------|
@@ -375,7 +375,8 @@ flowchart LR
 | Count nodes in CLL 🔢      | Recursively count nodes in a circular linked list.            |
 | Reverse SLL 🔁             | Reverse a singly linked list using recursion.                 |
 
-> ⚠️ Note: Solutions are not uploaded yet. Videos and step-by-step solutions will be linked here once available.
+> ✅ Note: Full solutions with detailed explanations, diagrams, and code are available in the [activities folder](src/activities/README.md).  
+> Watch the step-by-step solution video here: [Recursion Activities Solutions – DS Lab](https://youtu.be/fcldPtPGkt8)
 
 ---
 
