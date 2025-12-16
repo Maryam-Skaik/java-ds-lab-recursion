@@ -17,6 +17,11 @@ activities/
 
 ---
 
+## 🎥 Video Explanation
+For a complete step-by-step walkthrough of all recursion activities, watch the explanation video:
+[Recursion Activities Solutions – DS Lab](https://youtu.be/fcldPtPGkt8)
+
+---
 ## 🤔 Why Use Recursion Here?
 
 A linked list is defined recursively:
