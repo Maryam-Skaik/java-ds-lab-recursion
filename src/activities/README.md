@@ -124,10 +124,20 @@ graph LR
 **After Reversal:**
 ```mermaid
 graph LR
-    C[3] --> B[2] --> A[1] --> N[NULL]
-    style A fill:#f4cccc
-    style B fill:#ffe599
-    style C fill:#d9ead3
+    %% Rounded nodes using parentheses
+    A("3") --> B("2") --> C("1") --> N("NULL")
+
+    %% Class definitions for colors and borders
+    classDef node1 fill:#f4cccc,stroke:#b30000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef node2 fill:#ffe599,stroke:#b38f00,stroke-width:2px,color:#000,font-weight:bold;
+    classDef node3 fill:#d9ead3,stroke:#38761d,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeNull fill:#cfe2f3,stroke:#0b5394,stroke-width:2px,color:#000,font-weight:bold;
+
+    %% Apply classes
+    class A node1;
+    class B node2;
+    class C node3;
+    class N nodeNull;
 ```
 
 ---
@@ -152,11 +162,20 @@ This guarantees exactly **one full cycle**.
 ### 📐 Circular Traversal Visualization
 ```mermaid
 graph LR
-    A --> B --> C --> D --> A
-    style A fill:#cfe2f3
-    style B fill:#ead1dc
-    style C fill:#d9ead3
-    style D fill:#fff2cc
+    %% Rounded / pill-shaped nodes
+    A("A") --> B("B") --> C("C") --> D("D") --> A("A")
+
+    %% Class definitions for colors and borders
+    classDef nodeA fill:#cfe2f3,stroke:#0b5394,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeB fill:#ead1dc,stroke:#a61c3c,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeC fill:#d9ead3,stroke:#38761d,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeD fill:#fff2cc,stroke:#b38f00,stroke-width:2px,color:#000,font-weight:bold;
+
+    %% Apply classes
+    class A nodeA;
+    class B nodeB;
+    class C nodeC;
+    class D nodeD;
 ```
 
 ---
@@ -185,14 +204,20 @@ return 1 + countNodes(head, node.next);
 ### 📐 Recursive Counting Flow
 ```mermaid
 graph TD
-    A[Count A] --> B[Count B]
-    B --> C[Count C]
-    C --> D[Back to Head → Stop]
+    %% Rounded / pill-shaped nodes
+    A("Count A") --> B("Count B") --> C("Count C") --> D("Back to Head → Stop")
 
-    style A fill:#d0e0e3
-    style B fill:#ead1dc
-    style C fill:#d9ead3
-    style D fill:#fce5cd
+    %% Class definitions for colors and borders
+    classDef nodeA fill:#d0e0e3,stroke:#0b5394,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeB fill:#ead1dc,stroke:#a61c3c,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeC fill:#d9ead3,stroke:#38761d,stroke-width:2px,color:#000,font-weight:bold;
+    classDef nodeD fill:#fce5cd,stroke:#b38f00,stroke-width:2px,color:#000,font-weight:bold;
+
+    %% Apply classes
+    class A nodeA;
+    class B nodeB;
+    class C nodeC;
+    class D nodeD;
 ```
 
 ### 📊 Complexity
@@ -203,10 +228,10 @@ graph TD
 
 ## 🚫 Common Student Mistakes
 
-- ❌ Using `null` as a base case in circular lists
-- ❌ Forgetting to stop recursion at `node.next == head`
-- ❌ Reversing data instead of pointers
-- ❌ Not tracing recursive calls manually
+❌ Using `null` as a base case in circular lists
+❌ Forgetting to stop recursion at `node.next == head`
+❌ Reversing data instead of pointers
+❌ Not tracing recursive calls manually
 
 ---
 
