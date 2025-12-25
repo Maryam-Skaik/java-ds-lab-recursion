@@ -76,7 +76,11 @@ In this section, we explain the **idea behind each example**, how to **plan and 
   - Function accepts a count.
   - Print the name once.
   - Call itself with count − 1.
-4. **Mermaid Visualization:**
+4. **Time Complexity: O(n)**
+  - Each recursive call prints the name once, and there are `n` calls.
+5. **Space Complexity: O(n)**
+  - Due to `n` recursive calls stored on the call stack.
+6. **Mermaid Visualization:**
 
 ```mermaid
 flowchart LR
@@ -110,7 +114,11 @@ flowchart LR
 2. **Recursive case** 🔄:
   - Forward: process the current element, then call the function for the next index.
   - Backward: call the function for the next index first, then process the element (to reverse the order).
-3. **Mermaid Forward Example:**
+3. **Time Complexity: O(n)**
+  - Each element is visited exactly once.
+4. **Space Complexity: O(n)**
+  - One recursive call per array element (call stack).
+5. **Mermaid Forward Example:**
 
 ```mermaid
 flowchart LR
@@ -123,7 +131,7 @@ flowchart LR
     style D fill:#99ccff,stroke:#0033cc,stroke-width:2px,color:#000000,rx:10,ry:10
 ```
 
-4. **Mermaid Backward Example:**
+6. **Mermaid Backward Example:**
 
 ```mermaid
 flowchart LR
@@ -161,7 +169,11 @@ flowchart LR
 2. **Recursive case:** Compare current element with the maximum of the rest of the array.
 3. **Break down the problem:**
      - `max(arr[i..n-1]) = max(arr[i], max(arr[i+1..n-1]))`
-4. **Visualization:**
+4. **Time Complexity: O(n)**
+  - Each element is compared once.
+5. **Space Complexity: O(n)**
+  - Recursion depth equals the number of elements.
+6. **Visualization:**
 
 ```mermaid
 flowchart LR
@@ -202,7 +214,11 @@ flowchart LR
 2. **Recursive case:** `factorial(n) = n * factorial(n-1)`.
 3. **Build it gradually:**
   - Start with small n (e.g., 3), trace the recursive calls.
-4. **Visualization:**
+4. **Time Complexity: O(n)**
+  - One recursive call per value from n down to 1.
+5. **Space Complexity: O(n)**
+  - Call stack stores n function calls.
+6. **Visualization:**
 
 ```mermaid
 flowchart LR
@@ -233,7 +249,11 @@ flowchart LR
 **Thinking recursively:**
 1. **Base cases:** `fib(0)=0`, `fib(1)=1`.
 2. **Recursive case:** `fib(n)` = `fib(n-1)` + `fib(n-2)`.
-3. **Visualize recursion tree:**
+3. **Time Complexity: O(2ⁿ)** (Exponential)
+  - Massive repetition due to overlapping subproblems.
+4. **Space Complexity: O(n)**
+  - Maximum recursion depth is n.
+5. **Visualize recursion tree:**
 
 ```mermaid
 flowchart TB
@@ -269,7 +289,7 @@ flowchart TB
     style I_fib_0 fill:#d4edda,stroke:#155724,stroke-width:2px,color:#000000,rx:12,ry:12
 ```
 
-4. Notice **overlapping subproblems** – this helps prepare for memoization later.
+6. Notice **overlapping subproblems** – this helps prepare for memoization later.
 
 > **Key Takeaway:** Recursion mirrors **mathematical definitions** directly and elegantly.
 
@@ -282,7 +302,11 @@ flowchart TB
 **Steps to design function:**
 1. **Base case:** Current node is null → return 0.
 2. **Recursive case:** Return `1 + count of rest of the list`.
-3. **Visualize:**
+3. **Time Complexity: O(n)**
+  - Each node is visited once.
+4. **Space Complexity: O(n)**
+  - One recursive call per node.
+5. **Visualize:**
 
 ```mermaid
 flowchart TB
@@ -323,11 +347,15 @@ flowchart TB
 **Forward traversal steps:**
 1. **Base case:** node is null → stop.
 2. **Recursive case:** print current node → call function on `next`.
+3. **Time Complexity: O(n)**
+4. **Space Complexity: O(n)**
 
 **Backward traversal steps:**
 1. **Base case:** node is null → stop.
 2. **Recursive case:** print current node → call function on `prev`.
-3. **Mermaid Forward Example:**
+3. **Time Complexity: O(n)**
+4. **Space Complexity: O(n)**
+5. **Mermaid Forward Example:**
 
 ```mermaid
 flowchart LR
