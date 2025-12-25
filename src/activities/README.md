@@ -233,10 +233,10 @@ graph TD
 
 ## 🚫 Common Student Mistakes
 
-❌ Using `null` as a base case in circular lists
-❌ Forgetting to stop recursion at `node.next == head`
-❌ Reversing data instead of pointers
-❌ Not tracing recursive calls manually
+❌ Using `null` as a base case in circular lists<br>
+❌ Forgetting to stop recursion at `node.next == head`<br>
+❌ Reversing data instead of pointers<br>
+❌ Not tracing recursive calls manually<br>
 
 ---
 
