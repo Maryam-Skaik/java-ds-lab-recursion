@@ -35,8 +35,8 @@ All solutions are implemented using **recursion only**, as required.
 
 ---
 
-📘 Oracle — Recursion Concepts  
-https://docs.oracle.com/javase/tutorial/java/recursion/
+📘 W3Schools — Java Recursion (Basics & Examples)<br>
+https://www.w3schools.com/java/java_recursion.asp
 
 📘 GeeksforGeeks — Recursion Examples  
 https://www.geeksforgeeks.org/recursion/
